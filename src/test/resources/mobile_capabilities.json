@@ -1,0 +1,11 @@
+{
+	"deviceName": "Pixel_2_API_28",
+	"platformName": "Android",
+	"platformVersion": "9.0",
+	"appPackage": "com.trivago",
+	"appActivity": "com.trivago.ft.main.frontend.MainActivity",
+	"appWaitDuration":"3000",
+	"noReset":"true",
+	"automationName":"UiAutomator2",
+	"unicodeKeyboard":"true"
+}
