@@ -1,6 +1,5 @@
 package screens;
 
-import org.testng.Assert;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -30,7 +29,6 @@ public class HomeTrivagoScreen extends BaseScreen {
 	private static final String FIFTH_LOCATOR = "action_favourites";
 	private static final String SIXTH_LOCATOR = "action_settings";
 
-	
 	// AndroidElements
 	@AndroidFindBy(id = FIRST_LOCATOR)
 	private AndroidElement iconTrivago;
@@ -63,33 +61,54 @@ public class HomeTrivagoScreen extends BaseScreen {
 	}
 
 	/**
-	 * Validate that iconTrivago is enable.
 	 * 
 	 * 
+	 * @return true if element is enable.
 	 */
-	public void validateDisplay() {
-		
+	public boolean validateDisplay() {
 		customWait.waitInSeconds(3);
-		Assert.assertTrue(iconTrivago.isEnabled());
-
+		return iconTrivago.isEnabled();
 	}
 
+
 	/**
-	 * Validate that iconTrivago is enable.
 	 * 
 	 * 
+	 * @return true if element is enable.
 	 */
-	public void validateNavegationBar() {
+	public boolean validateIsEnablenableOptionBusqueda() {
 		customWait.waitAndroidElementVisibility(driver, iconTrivago, 20);
-		Assert.assertTrue(optionBusqueda.isEnabled());
-		Assert.assertTrue(optionSorprendete.isEnabled());
-		Assert.assertTrue(optionFavorito.isEnabled());
-		Assert.assertTrue(optionConfiguracion.isEnabled());
-
+		return optionBusqueda.isEnabled();
 	}
 
 	/**
-	 * Returns a DestinationScreen after of do click in "Cofiguracion"
+	 * 
+	 * 
+	 * @return true if element is enable.
+	 */
+	public boolean validateIsEnablenableOptionSorprendete() {
+		return optionSorprendete.isEnabled();
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if element is enable.
+	 */
+	public boolean validateIsEnablenableOptionFavorito() {
+		return optionFavorito.isEnabled();
+	}
+
+	/**
+	 * 
+	 * 
+	 * @return true if element is enable.
+	 */
+	public boolean validateIsEnablenableConfiguracion() {
+		return optionConfiguracion.isEnabled();
+	}
+
+	/**
+	 * Returns a DestinationScreen after of do click in "Configuracion"
 	 * 
 	 * 
 	 * @return SettingScreen

@@ -1,7 +1,5 @@
 package screens;
 
-import static org.testng.Assert.assertTrue;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -45,12 +43,19 @@ public class DateScreen extends BaseScreen {
 	 * 
 	 */
 
-	public void validateAfterSelectDestionation() {
-		customWait.waitAndroidElementVisibility(driver, buttonConfirmar, 20);
-		assertTrue(getTextElementWithSelector(SELECT_DATE).isEnabled());
-		assertTrue(buttonConfirmar.isEnabled());
-	}
 
+
+	public boolean validateIsEnableDestination() {
+		customWait.waitAndroidElementVisibility(driver, buttonConfirmar, 20);
+		return getTextElementWithSelector(SELECT_DATE).isEnabled();
+		
+	}
+	
+	public boolean validateIsEnableButtonConfirmar() {
+		customWait.waitAndroidElementVisibility(driver, buttonConfirmar, 20);
+		return buttonConfirmar.isEnabled();
+		
+	}
 	/**
 	 * Returns a SearchScreen after select dates and click in "Confirmar"
 	 * 

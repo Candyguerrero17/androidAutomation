@@ -1,13 +1,11 @@
 package screens;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
+import static util.constant.ValidateInfo.FIRST_BODY_SETTING;
+import static util.constant.ValidateInfo.SECOND_BODY_SETTING;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import static util.constant.ValidateInfo.FIRST_BODY_SETTING;
-import static util.constant.ValidateInfo.SECOND_BODY_SETTING;
 import util.screens.BaseScreen;
 
 /**
@@ -56,24 +54,63 @@ public class SettingPrivacy extends BaseScreen {
 	private AndroidElement checkBoxFacebbok;
 
 	/**
-	 * Validate title, body, button and checkbox
 	 * 
 	 * 
-	 * 
+	 * @return true if element is enabled.
 	 */
 
-	public void validateSettingsPrivacy() {
+	public boolean validateIsEnableTitle() {
 		customWait.waitAndroidElementVisibility(driver, buttonGuardar, 20);
-		assertTrue(getTextElementWithSelector(TITLE_SETTING).isEnabled());
-		assertTrue(buttonGuardar.isEnabled());
-		assertEquals(getTextElement(bodyFirst), FIRST_BODY_SETTING);
-		assertEquals(getTextElement(bodySecond), SECOND_BODY_SETTING);
-		assertEquals(getAttributeElement(checkBoxFlyer), TRUE);
-		assertEquals(getAttributeElement(checkBoxFire), TRUE);
-		assertEquals(getAttributeElement(checkBoxFacebbok), TRUE);
-
+		return getTextElementWithSelector(TITLE_SETTING).isEnabled();
 	}
-
+	/**
+	 * 
+	 * 
+	 * @return true if element is enabled.
+	 */
+	public boolean validateIsEnableButtonSave() {
+		return buttonGuardar.isEnabled();
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateFirstBody() {
+		return getTextElement(bodyFirst).equals(FIRST_BODY_SETTING);
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateSecondBody() {
+		return getTextElement(bodySecond).equals(SECOND_BODY_SETTING);
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateCheckFlyer() {
+		return getAttributeElement(checkBoxFlyer).equals(TRUE);
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateCheckFire() {
+		return getAttributeElement(checkBoxFire).equals(TRUE);
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateCheckFacebook() {
+		return getAttributeElement(checkBoxFacebbok).equals(TRUE);
+	}
 	/**
 	 * Returns a SettingScreen afther uncheck option
 	 * 
@@ -84,13 +121,17 @@ public class SettingPrivacy extends BaseScreen {
 		customWait.waitAndroidElementVisibility(driver, buttonGuardar, 20);
 		checkBoxFacebbok.click();
 		buttonGuardar.click();
-
 		return new SettingScreen(driver);
 
 	}
 
-	public void validateUncheckOk() {
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateUncheckOk() {
 		customWait.waitAndroidElementVisibility(driver, buttonGuardar, 20);
-		assertEquals(getAttributeElement(checkBoxFacebbok), FALSE);
+		return  getAttributeElement(checkBoxFacebbok).equals(FALSE);
 	}
 }
