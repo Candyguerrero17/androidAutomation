@@ -21,7 +21,8 @@ public class SettingScreen extends BaseScreen {
 
 	}
 
-	private static final String FIRST_LOCATOR = "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().className(\"android.widget.TextView\").textContains(\"Configurar privacidad de datos\"))";
+	private static final String FIRST_LOCATOR = "new UiSelector().className(\"android.widget.TextView\").textContains(\"Configurar privacidad de datos\")";
+	private static final String AFTER_OPTION="Atención al cliente";
 
 	// AndroidElements
 	@AndroidFindBy(uiAutomator = FIRST_LOCATOR)
@@ -35,7 +36,10 @@ public class SettingScreen extends BaseScreen {
 	 */
 	public SettingPrivacy selectOptionSetting() {
 		customWait.waitAndroidElementVisibility(driver, optionConfiguracionPrivacidad, 20);
+		scrollToText(AFTER_OPTION);
 		optionConfiguracionPrivacidad.click();
 		return new SettingPrivacy(driver);
 	}
+
+
 }

@@ -1,7 +1,6 @@
 package screens;
 
 import org.testng.Assert;
-
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -31,6 +30,7 @@ public class HomeTrivagoScreen extends BaseScreen {
 	private static final String FIFTH_LOCATOR = "action_favourites";
 	private static final String SIXTH_LOCATOR = "action_settings";
 
+	
 	// AndroidElements
 	@AndroidFindBy(id = FIRST_LOCATOR)
 	private AndroidElement iconTrivago;
@@ -68,6 +68,7 @@ public class HomeTrivagoScreen extends BaseScreen {
 	 * 
 	 */
 	public void validateDisplay() {
+		
 		customWait.waitInSeconds(3);
 		Assert.assertTrue(iconTrivago.isEnabled());
 

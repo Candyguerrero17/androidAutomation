@@ -2,6 +2,7 @@ package tests;
 
 
 import org.testng.annotations.Test;
+
 import screens.CookieConsentScreen;
 import screens.DateScreen;
 import screens.DestinationScreen;
@@ -11,7 +12,7 @@ import screens.SettingPrivacy;
 import screens.SettingScreen;
 import screens.WelcomeScreen;
 import util.tests.BaseMobileTest;
-
+	
 public class TrivagoTests extends BaseMobileTest{
 	private WelcomeScreen welcome;
 	private CookieConsentScreen cookie;
@@ -28,7 +29,7 @@ public class TrivagoTests extends BaseMobileTest{
 	 * 
 	 */
 
-	@Test(enabled =true)
+	@Test(enabled =false)
 	public void dataPrivacyTest() {
 		
 		 welcome= new WelcomeScreen(driver);
@@ -88,5 +89,23 @@ public class TrivagoTests extends BaseMobileTest{
 		 settingPrivacy.validateSettingsPrivacy();
 	}
 	
+	/**
+	 * Verify uncheckin setting date privacy".
+	 * 
+	 * @author AnyOne
+	 * 
+	 */
+	@Test(enabled =true)
+	public void changeCheckDataPrivacyTest() {
+		
+		 welcome= new WelcomeScreen(driver);
+		 cookie= welcome.confirmationWelcome();
+		 homeTrivago =cookie.aceptCookiesConsent();
+		 setting = homeTrivago.goToSetting();
+		 settingPrivacy = setting.selectOptionSetting();
+		 setting =settingPrivacy.unCheckOptionFacebook();
+		 settingPrivacy= setting.selectOptionSetting();
+		 settingPrivacy.validateUncheckOk();
+	}
 	
 }

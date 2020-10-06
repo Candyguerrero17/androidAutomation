@@ -34,7 +34,8 @@ public class SettingPrivacy extends BaseScreen {
 	private static final String SEVENTH_LOCATOR = "activityDataManagerFacebookCheckbox";
 	private static final String TITLE_SETTING = "Configurar privacidad de datos";
 	private static final String TRUE = "true";
-	
+	private static final String FALSE = "false";
+
 	// AndroidElements
 	@AndroidFindBy(id = FIRST_LOCATOR)
 	private AndroidElement buttonGuardar;
@@ -71,5 +72,25 @@ public class SettingPrivacy extends BaseScreen {
 		assertEquals(getAttributeElement(checkBoxFire), TRUE);
 		assertEquals(getAttributeElement(checkBoxFacebbok), TRUE);
 
+	}
+
+	/**
+	 * Returns a SettingScreen afther uncheck option
+	 * 
+	 * 
+	 * @return SettingScreen 
+	 */
+	public SettingScreen unCheckOptionFacebook() {
+		customWait.waitAndroidElementVisibility(driver, buttonGuardar, 20);
+		checkBoxFacebbok.click();
+		buttonGuardar.click();
+
+		return new SettingScreen(driver);
+
+	}
+
+	public void validateUncheckOk() {
+		customWait.waitAndroidElementVisibility(driver, buttonGuardar, 20);
+		assertEquals(getAttributeElement(checkBoxFacebbok), FALSE);
 	}
 }

@@ -77,6 +77,7 @@ public class CookieConsentScreen extends BaseScreen {
 	public HomeTrivagoScreen aceptCookiesConsent() {
 		customWait.waitAndroidElementVisibility(driver, buttonAceptarTodo, 20);
 		buttonAceptarTodo.click();
+
 		return new HomeTrivagoScreen(driver);
 
 	}

@@ -1,7 +1,6 @@
 {
-	"deviceName": "Pixel_2_API_28",
+	"deviceName": "",
 	"platformName": "Android",
-	"platformVersion": "9.0",
 	"appPackage": "com.trivago",
 	"appActivity": "com.trivago.ft.main.frontend.MainActivity",
 	"appWaitDuration":"3000",
