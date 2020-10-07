@@ -1,12 +1,11 @@
 package screens;
 
-import static org.testng.Assert.assertEquals;
+import static util.constant.ValidateInfo.COUNTRY;
+import static util.constant.ValidateInfo.DATES_DESTINATION;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import static util.constant.ValidateInfo.COUNTRY;
-import static util.constant.ValidateInfo.DATES_DESTINATION;
 import util.screens.BaseScreen;
 /**
  * Description:Screen of search hotel!
@@ -33,14 +32,25 @@ public class SearchScreen extends BaseScreen{
 	private AndroidElement fieldFecha;
 	
 	/**
-	 * Validate data of "Destino" and "Fecha"
 	 * 
 	 * 
+	 * @return true if text is equals.
 	 */
-	public void validateDestinoAndFecha() {
+	
+	public boolean validateDestino() {
 		customWait.waitAndroidElementVisibility(driver, fieldDestino, 20);
-		assertEquals(COUNTRY, getTextElement(fieldDestino));
-		assertEquals(DATES_DESTINATION, getTextElement(fieldFecha));
+		return getTextElement(fieldDestino).equals(COUNTRY);
+	
+	}
+	
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals.
+	 */
+	public boolean validateDate() {
+		return getTextElement(fieldFecha).equals(DATES_DESTINATION);
+	
 	}
 
 }

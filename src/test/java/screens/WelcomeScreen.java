@@ -22,13 +22,9 @@ public class WelcomeScreen extends BaseScreen {
 
 	}
 
-	private static final String FIRST_LOCATOR = "new UiSelector().className(\"android.widget.TextView\").textContains(\"Colombia\")";
 	private static final String SEGUND_LOCATOR = "activityPlatformSelectionConfirmButton";
-	private static final String COUNTRY_AFTER = "Deutschland";
-
+	private static final String COUNTRY = "Colombia";
 	// AndroidElements
-	@AndroidFindBy(uiAutomator = FIRST_LOCATOR)
-	private AndroidElement optionCol;
 	@AndroidFindBy(id = SEGUND_LOCATOR)
 	private AndroidElement buttonConfirm;
 	
@@ -42,8 +38,7 @@ public class WelcomeScreen extends BaseScreen {
 
 	public CookieConsentScreen confirmationWelcome() {
 		customWait.waitInSeconds(3);
-		scrollToText(COUNTRY_AFTER);
-		optionCol.click();
+		scrollToTextAndClick(COUNTRY);
 		customWait.waitInSeconds(3);
 	    buttonConfirm.click();
 		return new CookieConsentScreen(driver);

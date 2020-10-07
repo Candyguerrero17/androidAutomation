@@ -63,6 +63,18 @@ public abstract class BaseScreen {
 	 *
 	 * @param text : String
 	 */
+	public void scrollToTextAndClick(String text) {
+	
+		String automator = "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().className(\"android.widget.TextView\").textContains(\"%s\"))";
+		AndroidElement textOnElement = driver.findElementByAndroidUIAutomator(format(automator, text));
+		Logger.info(textOnElement.getText());
+		textOnElement.click();
+	}
+	/**
+	 * Get text with elemente UiSelector.
+	 *
+	 * @param text : String
+	 */
 	public WebElement getTextElementWithSelector(String text) {
 		
 		String automator = "new UiSelector().textContains(\"" +text+ "\")";

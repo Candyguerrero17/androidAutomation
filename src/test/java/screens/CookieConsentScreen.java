@@ -1,6 +1,5 @@
 package screens;
 
-import static org.testng.Assert.assertEquals;
 import static util.constant.ValidateInfo.FIRST_BODY;
 import static util.constant.ValidateInfo.SECOND_BODY;
 import static util.constant.ValidateInfo.THIRD_BODY;
@@ -51,22 +50,46 @@ public class CookieConsentScreen extends BaseScreen {
 	private AndroidElement buttonAceptarTodo;
 
 	/**
-	 * Validate title and body of CookieSConsentScreen
+	 * Returns a DateScreen after select country
+	 * @return 
 	 * 
 	 * 
-	 * 
+	 * @return DateScreen
 	 */
 
-	public void valideTitleAndBody() {
+	public boolean valideTitle() {
 
 		customWait.waitAndroidElementVisibility(driver, titleDataPrivacy, 20);
-		assertEquals(getTextElement(titleDataPrivacy) ,TITLE_DATA_PRIVACY);
-		assertEquals(getTextElement(bodyFirst),FIRST_BODY );
-		assertEquals(getTextElement(bodySecond), SECOND_BODY);
-		assertEquals(getTextElement(bodyThird) ,THIRD_BODY);
+		return getTextElement(titleDataPrivacy).equals(TITLE_DATA_PRIVACY);
 
 	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals
+	 */
+	public boolean valideFirstBody() {
 
+		return getTextElement(bodyFirst).equals(FIRST_BODY);
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals
+	 */
+	public boolean valideSecondBody() {
+
+		return getTextElement(bodySecond).equals(SECOND_BODY);
+	}
+	/**
+	 * 
+	 * 
+	 * @return true if text is equals
+	 */
+	public boolean valideThirdBody() {
+
+		return getTextElement(bodyThird).equals(THIRD_BODY);
+	}
 	/**
 	 * Returns a CookieConsentScreen after to do clik in "Aceptar todo".
 	 * 
@@ -77,6 +100,7 @@ public class CookieConsentScreen extends BaseScreen {
 	public HomeTrivagoScreen aceptCookiesConsent() {
 		customWait.waitAndroidElementVisibility(driver, buttonAceptarTodo, 20);
 		buttonAceptarTodo.click();
+
 		return new HomeTrivagoScreen(driver);
 
 	}
