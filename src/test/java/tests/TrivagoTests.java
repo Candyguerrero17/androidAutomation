@@ -40,6 +40,7 @@ public class TrivagoTests extends BaseMobileTest {
 		Assert.assertTrue(cookie.valideSecondBody());
 		Assert.assertTrue(cookie.valideThirdBody());
 		homeTrivago = cookie.aceptCookiesConsent();
+		Assert.assertFalse(homeTrivago.isVisibleTitleDataPrivacy());
 		Assert.assertTrue(homeTrivago.validateDisplay());
 
 	}
@@ -50,7 +51,7 @@ public class TrivagoTests extends BaseMobileTest {
 	 * @author AnyOne
 	 * 
 	 */
-	@Test(enabled = true, priority = 2)
+	@Test(enabled = false, priority = 2)
 	public void searchHotelTest() {
 
 		welcome = new WelcomeScreen(driver);
@@ -71,7 +72,7 @@ public class TrivagoTests extends BaseMobileTest {
 	 * @author AnyOne
 	 * 
 	 */
-	@Test(enabled = true, priority = 3)
+	@Test(enabled = false, priority = 3)
 	public void navegationBarTest() {
 
 		welcome = new WelcomeScreen(driver);
@@ -90,7 +91,7 @@ public class TrivagoTests extends BaseMobileTest {
 	 * @author AnyOne
 	 * 
 	 */
-	@Test(enabled = true, priority = 4)
+	@Test(enabled = false, priority = 4)
 	public void settingDataPrivacyTest() {
 
 		welcome = new WelcomeScreen(driver);
@@ -114,7 +115,7 @@ public class TrivagoTests extends BaseMobileTest {
 	 * @author AnyOne
 	 * 
 	 */
-	@Test(enabled = true, priority = 5)
+	@Test(enabled = false, priority = 5)
 	public void changeCheckDataPrivacyTest() {
 
 		welcome = new WelcomeScreen(driver);

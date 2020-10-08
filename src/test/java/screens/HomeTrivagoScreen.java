@@ -10,7 +10,7 @@ import util.screens.BaseScreen;
  *
  */
 public class HomeTrivagoScreen extends BaseScreen {
-
+	CookieConsentScreen cookie;
 	/**
 	 * Constructor method.
 	 * 
@@ -117,6 +117,19 @@ public class HomeTrivagoScreen extends BaseScreen {
 		customWait.waitInSeconds(3);
 		optionConfiguracion.click();
 		return new SettingScreen(driver);
+	}
+	/**
+	 * 
+	 * 
+	 * @return false if title is not visible
+	 */
+	public boolean isVisibleTitleDataPrivacy() {
+	try {
+		return cookie.titleDataPrivacy.isEnabled();
+	} catch (Exception e) {
+		return false;
+	}
+		
 	}
 
 }

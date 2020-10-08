@@ -35,7 +35,7 @@ public class CookieConsentScreen extends BaseScreen {
 	// AndroidElements
 
 	@AndroidFindBy(id = FIRST_LOCATOR)
-	private AndroidElement titleDataPrivacy;
+	protected AndroidElement titleDataPrivacy;
 
 	@AndroidFindBy(id = SEGUND_LOCATOR)
 	private AndroidElement bodyFirst;
@@ -104,5 +104,6 @@ public class CookieConsentScreen extends BaseScreen {
 		return new HomeTrivagoScreen(driver);
 
 	}
+	
 
 }
