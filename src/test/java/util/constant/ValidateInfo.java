@@ -1,5 +1,10 @@
 package util.constant;
-
+/**
+ * Class of constans to test
+ * 
+ * @author 
+ *
+ */
 public class ValidateInfo {
 
 	public static final String TITLE_DATA_PRIVACY = "Privacidad de datos";
