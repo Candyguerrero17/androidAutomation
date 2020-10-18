@@ -50,7 +50,12 @@ public class DateScreen extends BaseScreen {
 		return getTextElementWithSelector(SELECT_DATE).isEnabled();
 		
 	}
-	
+	/**
+	 * Validate that "Seleccionar Fechas" and button "Confirmar" are enable
+	 * 
+	 * 
+	 */
+
 	public boolean validateIsEnableButtonConfirmar() {
 		customWait.waitAndroidElementVisibility(driver, buttonConfirmar, 20);
 		return buttonConfirmar.isEnabled();
